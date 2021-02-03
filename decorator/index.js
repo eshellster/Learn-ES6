@@ -1,8 +1,8 @@
-const Title = (title) => {
-  const Body = document.querySelector("body");
-  Body.innerHTML = `<head><h1 style="border-bottom: solid 5px skyblue; display: inline">${title}</h1></head>`;
-};
-Title("decorator");
+// const Title = (title) => {
+//   const Body = document.querySelector("body");
+//   Body.innerHTML = `<head><h1 style="border-bottom: solid 5px skyblue; display: inline">${title}</h1></head>`;
+// };
+// Title("decorator");
 /**
  * 클래스의 속성을 작성하기 위해 데코레이터를 사용
  */
@@ -115,16 +115,20 @@ class Jook {
 }
 
 class Hobakjook extends Jook {
-  viscosity = 20;
-
   constructor(flavor) {
     super();
     this.flavor = flavor;
   }
+  @readOnly
+  getDescript() {
+    return `이 호박죽은 걸죽한 정도가 ${this.viscosity} 입니다.`;
+  }
+  // viscosity = 20;
 }
 
 const hobakjook = new Hobakjook("옹심이 팥앙");
-console.log(hobakjook);
+console.log(hobakjook.getDescript());
+
 /*
 Hobakjook {
   viscosity: 10, 
